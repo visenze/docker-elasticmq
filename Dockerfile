@@ -1,9 +1,10 @@
-FROM java:jre
+FROM java:8-jre
 MAINTAINER Xu Fan <drowterran@gmail.com>
 
 # install
-ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.8.4.jar /elasticmq/elasticmq-server.jar
-ADD custom.conf /elasticmq/custom.conf
+WORKDIR /elasticmq
+RUN wget https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.8.8.jar -O elasticmq-server.jar
+COPY custom.conf /elasticmq/custom.conf
 
 # run
 ENTRYPOINT ["java", "-Dconfig.file=/elasticmq/custom.conf", "-jar", "/elasticmq/elasticmq-server.jar"]
