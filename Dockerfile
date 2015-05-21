@@ -1,5 +1,4 @@
 FROM java:8-jre
-MAINTAINER Xu Fan <drowterran@gmail.com>
 
 # install
 WORKDIR /elasticmq
