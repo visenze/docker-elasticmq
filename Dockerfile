@@ -1,8 +1,8 @@
-FROM java:7-jre
+FROM openjdk:8-jre
 
 # install
 WORKDIR /elasticmq
-RUN wget https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.9.3.jar -O elasticmq-server.jar
+RUN wget https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.13.2.jar -O elasticmq-server.jar
 COPY custom.conf /elasticmq/custom.conf
 COPY logback.xml /elasticmq/logback.xml
 
